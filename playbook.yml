@@ -1,0 +1,35 @@
+---
+- name: Playbook usada para instalar my machine.
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Baixando pacote ATOM.
+    get_url:
+      url: https://atom-installer.github.com/v1.42.0/atom-amd64.deb?s=1576347951&ext=.deb
+      dest: /tmp/atom.deb
+      mode: '770'
+
+  - name: Instalando pacote.
+    apt:
+     deb: /tmp/atom.deb
+
+  - name: Instalando Plugins do Atom
+    shell: apm install "{{ item }}"
+    loop:
+    - atom-beautify
+      - atom-marp
+      - busy-signal
+      - file-icons
+      - git-plus
+      - gitlab-integration
+      - highlight-selected
+      - intentions
+      - linter
+      - linter-ansible-linting
+      - linter-ansible-syntax
+      - linter-json-lint
+      - linter-ui-default
+      - advanced-open-file
+      - file-icons
+      - atom-liquid-snippets
+      - expose
