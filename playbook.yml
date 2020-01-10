@@ -3,9 +3,9 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: Baixando pacote ATOM.
+    - name: Baixando, instalando e configurando ATOM
       block:
-        - name: Baixando pacote
+        - name: Baixando pacote atom
           get_url:
             url: https://atom-installer.github.com/v1.42.0/atom-amd64.deb?s=1576347951&ext=.deb
             dest: /tmp/atom.deb
@@ -35,3 +35,4 @@
             - file-icons
             - atom-liquid-snippets
             - expose
+            - markdown-scroll-sync
