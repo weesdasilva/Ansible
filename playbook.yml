@@ -18,6 +18,7 @@
         - name: Instalando Plugins do Atom
           shell: apm install "{{ item }}"
           loop:
+            - markdown-scroll-sync
             - atom-beautify
             - atom-marp
             - busy-signal
@@ -35,4 +36,3 @@
             - file-icons
             - atom-liquid-snippets
             - expose
-            - markdown-scroll-sync
